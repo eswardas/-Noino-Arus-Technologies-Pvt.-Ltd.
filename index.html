@@ -3,136 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Software Developer - Noino Arus Technologies</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Careers | Noino Arus Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+    /* =========================================
+       GLOBAL FIXES FOR MOBILE RESPONSIVENESS
+       ========================================= */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     /* =========================================
        CORPORATE UI STYLES (THE BAIT)
        ========================================= */
     :root {
-        --brand-blue: #0a66c2;
-        --brand-dark: #1d2226;
-        --bg-light: #f3f2ef;
-        --text-main: rgba(0,0,0,0.9);
-        --text-muted: rgba(0,0,0,0.6);
-        --border-color: #e0dfdc;
+        --brand-blue: #0f172a; /* Sleeker, dark tech blue */
+        --brand-accent: #2563eb;
+        --brand-dark: #0f172a;
+        --bg-light: #f8fafc;
+        --text-main: #334155;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
         --white: #ffffff;
     }
 
     body {
         font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
         background-color: var(--bg-light);
         color: var(--text-main);
+        overflow-x: hidden;
     }
 
     #corporate-ui {
-        display: block; /* Visible by default */
+        display: block;
     }
 
-    /* Navbar */
-    .navbar {
+    /* Modern Brand Header (Replaces Navbar) */
+    .brand-header {
         background-color: var(--white);
+        padding: 50px 20px 40px;
+        text-align: center;
         border-bottom: 1px solid var(--border-color);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        padding: 0 20px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
-    .nav-content {
-        max-width: 1128px;
-        margin: 0 auto;
+    .logo-container {
         display: flex;
-        justify-content: flex-start;
+        flex-direction: column;
         align-items: center;
-        height: 60px;
+        justify-content: center;
+        gap: 16px;
     }
-    .logo-area { font-weight: 700; font-size: 20px; color: var(--brand-blue); letter-spacing: -0.5px; }
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--brand-accent);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    }
+    .brand-name {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--brand-dark);
+        letter-spacing: -1px;
+    }
+    .brand-motto {
+        font-size: 16px;
+        color: var(--text-muted);
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
     
     /* Layout Grid */
     .main-container {
-        max-width: 1128px;
-        margin: 30px auto;
+        max-width: 1000px; /* Slightly narrower for a more focused, modern look */
+        margin: 0 auto 50px auto;
         display: grid;
         grid-template-columns: 2fr 1fr;
-        gap: 24px;
+        gap: 30px;
         padding: 0 20px;
     }
 
     /* Cards */
     .card {
         background: var(--white);
-        border-radius: 8px;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 3px rgba(0,0,0,0.04);
-        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        padding: 30px;
         margin-bottom: 24px;
+        width: 100%;
+        overflow: hidden;
     }
 
     /* Hero Section */
-    .job-header h1 { margin: 0 0 8px 0; font-size: 28px; color: var(--brand-dark); }
-    .company-name { font-size: 16px; font-weight: 600; color: var(--text-main); }
-    .job-meta { color: var(--text-muted); font-size: 14px; margin-top: 4px; margin-bottom: 20px; }
+    .job-header h1 { margin: 0 0 10px 0; font-size: 28px; color: var(--brand-dark); line-height: 1.3; }
+    .job-meta { color: var(--text-muted); font-size: 15px; font-weight: 500; margin-bottom: 24px; }
     .apply-btn-top {
-        background-color: var(--brand-blue);
+        background-color: var(--brand-accent);
         color: white;
         border: none;
-        padding: 10px 24px;
-        border-radius: 24px;
+        padding: 12px 28px;
+        border-radius: 6px;
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        transition: background 0.2s;
+        transition: background 0.2s, transform 0.1s;
     }
-    .apply-btn-top:hover { background-color: #004182; }
+    .apply-btn-top:hover { background-color: #1d4ed8; transform: translateY(-1px); }
 
     /* Content Typography */
-    h2 { font-size: 20px; color: var(--brand-dark); margin: 30px 0 15px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
-    p, li { font-size: 15px; line-height: 1.6; color: var(--text-main); margin-bottom: 12px; }
-    ul { padding-left: 20px; margin-bottom: 20px; }
+    h2 { font-size: 20px; color: var(--brand-dark); margin: 35px 0 15px 0; font-weight: 600; }
+    h2:first-of-type { margin-top: 0; }
+    p, li { font-size: 16px; line-height: 1.7; color: var(--text-main); margin-bottom: 14px; }
+    ul, ol { padding-left: 20px; margin-bottom: 24px; }
+    li { margin-bottom: 8px; }
     
     /* Sidebar */
-    .summary-item { margin-bottom: 16px; }
-    .summary-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .summary-value { font-size: 15px; color: var(--text-main); font-weight: 600; margin-top: 4px; }
+    .summary-item { margin-bottom: 20px; }
+    .summary-label { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .summary-value { font-size: 15px; color: var(--brand-dark); font-weight: 500; margin-top: 6px; }
 
     /* Form Styles */
     .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        gap: 20px;
     }
-    .form-group { margin-bottom: 16px; }
+    .form-group { width: 100%; }
     .form-group.full-width { grid-column: span 2; }
-    label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
-    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
-        width: 100%; padding: 10px 12px; border: 1px solid var(--text-muted); border-radius: 4px;
-        font-family: inherit; font-size: 14px; box-sizing: border-box; transition: border 0.2s;
+    label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--brand-dark); }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select {
+        width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 6px;
+        font-family: inherit; font-size: 15px; transition: all 0.2s ease; background-color: #f8fafc;
     }
-    input:focus, select:focus, textarea:focus { border-color: var(--brand-blue); outline: none; box-shadow: 0 0 0 1px var(--brand-blue); }
+    input:focus, select:focus { border-color: var(--brand-accent); outline: none; background-color: #fff; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
     
-    .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 8px; }
-    .checkbox-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 400; cursor: pointer; }
+    .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin-top: 10px; }
+    .checkbox-item { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 400; cursor: pointer; color: var(--text-main); }
     
     .submit-btn {
-        background-color: var(--brand-blue); color: white; border: none; padding: 14px 24px;
-        border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;
-        margin-top: 20px; transition: background 0.2s;
+        background-color: var(--brand-accent); color: white; border: none; padding: 16px 24px;
+        border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%;
+        margin-top: 30px; transition: background 0.2s, transform 0.1s;
     }
-    .submit-btn:hover { background-color: #004182; }
-
-    @media (max-width: 768px) {
-        .main-container { grid-template-columns: 1fr; }
-        .form-grid { grid-template-columns: 1fr; }
-        .form-group.full-width { grid-column: span 1; }
-    }
-
+    .submit-btn:hover { background-color: #1d4ed8; transform: translateY(-1px); }
 
     /* =========================================
        CRINGE UI STYLES (THE PRANK)
        ========================================= */
     #cringe-ui {
-        display: none; /* Hidden by default */
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -148,33 +176,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 20px;
     }
 
-    /* Chaotic Animations */
-    @keyframes rainbow-seizure {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+    @keyframes rainbow-seizure { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @keyframes shake {
         0% { transform: translate(2px, 1px) rotate(0deg); }
-        10% { transform: translate(-1px, -2px) rotate(-1deg); }
         20% { transform: translate(-3px, 0px) rotate(1deg); }
-        30% { transform: translate(0px, 2px) rotate(0deg); }
         40% { transform: translate(1px, -1px) rotate(1deg); }
-        50% { transform: translate(-1px, 2px) rotate(-1deg); }
         60% { transform: translate(-3px, 1px) rotate(0deg); }
-        70% { transform: translate(2px, 1px) rotate(-1deg); }
         80% { transform: translate(-1px, -1px) rotate(1deg); }
-        90% { transform: translate(2px, 2px) rotate(0deg); }
         100% { transform: translate(1px, -2px) rotate(-1deg); }
-    }
-    @keyframes spin { 100% { transform: rotate(360deg) scale(1.5); } }
-    @keyframes blink { 0%, 49% { opacity: 1; color: #00ff00; } 50%, 100% { opacity: 0; color: #ff00ff; } }
-    @keyframes float { 
-        0% { transform: translateY(0px) rotate(0deg); } 
-        50% { transform: translateY(-100px) rotate(180deg); } 
-        100% { transform: translateY(0px) rotate(360deg); } 
     }
     @keyframes text-shiver {
         0% { transform: translate(2px, 1px) rotate(0deg); }
@@ -183,52 +195,28 @@
         75% { transform: translate(1px, 2px) rotate(0deg); }
         100% { transform: translate(1px, -1px) rotate(-1deg); }
     }
+    @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-100px) rotate(180deg); } 100% { transform: translateY(0px) rotate(360deg); } }
 
     .cringe-text {
         font-size: 4em;
         font-weight: bold;
         color: #ffff00;
         text-shadow: 5px 5px 0px #ff00ff, -5px -5px 0px #00ffff, 0px 0px 20px #000;
-        margin: 20px;
+        margin: 20px 0;
         animation: text-shiver 0.1s infinite;
         z-index: 10;
         line-height: 1.2;
+        word-wrap: break-word;
+        max-width: 100%;
     }
 
-    .blinking-text {
-        font-size: 2.5em;
-        animation: blink 0.2s infinite;
-        text-decoration: underline overline;
-        margin-top: 30px;
-        font-weight: 900;
-        z-index: 10;
-    }
-
-    .marquee-container {
-        width: 100%;
-        background-color: yellow;
-        color: red;
-        font-size: 30px;
-        font-weight: bold;
-        border-top: 5px dashed blue;
-        border-bottom: 5px dashed green;
-        position: absolute;
-    }
-    .marquee-top { top: 10%; }
-    .marquee-bottom { bottom: 10%; }
-
-    .emoji-rain {
-        position: absolute;
-        font-size: 50px;
-        z-index: 1;
-        opacity: 0.8;
-    }
+    .emoji-rain { position: absolute; font-size: 50px; z-index: 1; opacity: 0.8; }
     .e1 { top: 20%; left: 10%; animation: float 2s infinite ease-in-out; }
     .e2 { top: 60%; left: 80%; animation: float 3s infinite ease-in-out reverse; font-size: 80px; }
     .e3 { top: 80%; left: 20%; animation: float 1.5s infinite ease-in-out; }
 
     .tiny-reveal {
-        margin-top: 50px;
+        margin-top: 40px;
         font-family: monospace;
         font-size: 20px;
         color: #ffffff;
@@ -236,29 +224,66 @@
         text-shadow: 2px 2px 5px #000000;
         letter-spacing: 1px;
         z-index: 20;
+        word-wrap: break-word;
+        max-width: 90%;
+    }
+
+    /* =========================================
+       MOBILE MEDIA QUERIES
+       ========================================= */
+    @media (max-width: 768px) {
+        .main-container { 
+            grid-template-columns: 1fr; 
+            padding: 0 15px; 
+            gap: 20px;
+        }
+        .form-grid { grid-template-columns: 1fr; gap: 16px; }
+        .form-group.full-width { grid-column: span 1; }
+        .card { padding: 24px; }
+        .brand-name { font-size: 26px; }
+        .brand-motto { font-size: 14px; }
+        .job-header h1 { font-size: 24px; }
+
+        .cringe-text { 
+            font-size: 2.2em; 
+            text-shadow: 3px 3px 0px #ff00ff, -3px -3px 0px #00ffff, 0px 0px 10px #000;
+        }
+        .tiny-reveal { font-size: 16px; }
+        .emoji-rain { font-size: 40px; }
+        .e2 { font-size: 50px; }
+    }
+
+    @media (max-width: 400px) {
+        .cringe-text { font-size: 1.8em; }
+        .tiny-reveal { font-size: 14px; }
+        .job-header h1 { font-size: 22px; }
     }
 
 </style>
 </head>
 <body>
 
-<!-- =======================================================
-     THE CORPORATE BAIT (Looks highly professional)
-     ======================================================= -->
 <div id="corporate-ui">
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo-area">Noino Arus Technologies</div>
+    
+    <header class="brand-header">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 20L4 4L14 14L20 4L20 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div>
+                <div class="brand-name">Noino Arus Technologies</div>
+                <div class="brand-motto">Architecting the future through scalable innovation.</div>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <div class="main-container">
-        <!-- Left Column: Job Description & Form -->
         <div class="left-column">
             <div class="card job-header">
                 <h1>Software Developer (Entry Level)</h1>
-                <div class="company-name">Noino Arus Technologies Pvt. Ltd.</div>
-                <div class="job-meta">Multiple Locations, India · Full-time · 0 Years Experience</div>
+                <div class="job-meta">Multiple Locations, India &bull; Full-time &bull; 0 Years Experience</div>
                 <button class="apply-btn-top" onclick="document.getElementById('application-form').scrollIntoView({behavior: 'smooth'})">Apply Now</button>
             </div>
 
@@ -293,7 +318,7 @@
 
             <div class="card" id="apply-section">
                 <h2>Submit Your Application</h2>
-                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Please ensure all details match your official documents. Shortlisted candidates will receive an assessment link via email.</p>
+                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Please ensure all details match your official documents. Shortlisted candidates will receive an assessment link via email.</p>
                 
                 <form id="application-form">
                     <div class="form-grid">
@@ -366,7 +391,6 @@
             </div>
         </div>
 
-        <!-- Right Column: Summary Sidebar -->
         <div class="right-column">
             <div class="card">
                 <div class="summary-item">
@@ -381,27 +405,22 @@
                     <div class="summary-label">Employment Type</div>
                     <div class="summary-value">Full-time (with Probation)</div>
                 </div>
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 24px 0;">
                 <div class="summary-item">
                     <div class="summary-label">Probation Stipend (4 Months)</div>
-                    <div class="summary-value" style="color: #057642;">₹25,000 / month</div>
+                    <div class="summary-value" style="color: #059669; font-weight: 700;">₹25,000 / month</div>
                 </div>
                 <div class="summary-item">
                     <div class="summary-label">Post-Probation Salary</div>
-                    <div class="summary-value" style="color: #057642;">Up to ₹60,000 / month</div>
+                    <div class="summary-value" style="color: #059669; font-weight: 700;">Up to ₹60,000 / month</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-<!-- =======================================================
-     THE CRINGE PRANK UI (Triggers on submit)
-     ======================================================= -->
 <div id="cringe-ui">
     
-    <!-- Emojis floating around chaotically -->
     <div class="emoji-rain e1">🤡</div>
     <div class="emoji-rain e2">🤪</div>
     <div class="emoji-rain e3">💀</div>
@@ -410,26 +429,20 @@
         എല്ലാവർക്കും എന്റെ<br>ഏപ്രിൽ ഫൂൾസ്<br>ദിനാശംസകൾ<br>- അപ്പു
     </div>
 
-    <!-- Hidden audio element for the BGM -->
     <audio id="prank-audio" src="prank.mp3" preload="auto"></audio>
 
-    <!-- The Easter Egg -->
     <div class="tiny-reveal">Noino Arus = Onion Sura(in reverse)</div>
 </div>
 
 <script>
     document.getElementById("application-form").addEventListener("submit", function(event) {
-        // Prevent real form submission
         event.preventDefault();
         
-        // Hide the corporate UI completely
         document.getElementById("corporate-ui").style.display = "none";
         
-        // Show the absolutely chaotic cringe UI
         let prankPage = document.getElementById("cringe-ui");
         prankPage.style.display = "flex";
         
-        // Play the audio
         let audio = document.getElementById("prank-audio");
         audio.play().catch(error => {
             console.log("Audio playback blocked. Provide 'prank.mp3' in the directory.", error);
